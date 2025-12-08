@@ -1,3 +1,5 @@
+import pytest
+
 from api.endpoints import Endpoints
 
 def test_get_posts_list(client):
@@ -31,3 +33,16 @@ def test_create_post(client):
 def test_delete_post(client):
     response = client.delete(Endpoints.POSTS + "/1")
     assert response.status_code == 200 or response.status_code == 204
+
+def test_get_wrong_id(client):
+    response = client.get(Endpoints.POSTS + "/9999")
+    assert response.status_code == 404, 'Expected 404 for non-existent post'
+
+@pytest.mark.parametrize('id', ['1','2','3'])
+def test_get_post_by_id(client, id):
+    response = client.get(Endpoints.POSTS + "/" + id)
+    assert response.status_code == 200
+    data = response.json()
+    assert "id"  in data
+    assert "title" in data
+    assert "body" in data
