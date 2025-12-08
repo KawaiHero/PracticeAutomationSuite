@@ -38,6 +38,12 @@ pytest tests/api
 
 pytest tests/api/test_get_posts.py::test_get_posts_list
 
+*Generate Allure results
+pytest --alluredir=allure-results
+
+*Open report
+allure serve allure-results
+
 *Project Structure
 ![img.png](Structure.png)
 
