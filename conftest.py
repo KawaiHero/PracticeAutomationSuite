@@ -1,6 +1,13 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+import pytest
+from api.client import APIClient
+
+@pytest.fixture
+def client():
+    return APIClient()
+
 
 
 def pytest_addoption(parser):
