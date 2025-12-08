@@ -39,7 +39,7 @@ pytest tests/api
 pytest tests/api/test_get_posts.py::test_get_posts_list
 
 *Project Structure
-![img.png](img.png)
+![img.png](Structure.png)
 
 List of Tests
 UI Tests (https://www.saucedemo.com/)
@@ -58,3 +58,4 @@ API Tests (https://jsonplaceholder.typicode.com)
 4. Delete a post (DELETE /posts/{id})
 5. Negative test: request a non-existent post (GET /posts/9999 → 404)
 
+![allure res.png](allure%20res.png)
